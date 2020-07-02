@@ -20,3 +20,7 @@ const lee = {
 
 console.log('kim.sum()', kim.sum());
 console.log('lee.sum()', lee.sum());
+
+const d1 = new Date('2019-4-10');
+console.log('d1.getFullYear()', d1.getFullYear());
+console.log('d1.getMonth()', d1.getMonth());
