@@ -1,23 +1,25 @@
-//8.1 Classes
-// 원래 자바스크립트에는 클래스 개념이 없었다.
-// 여러 컴퓨터 언어들은 객체를 만드는 공장과 같은 역할로 class를 채택하고 있다.
-// 앞서 우리는 객체를 찍어내는 공장으로 constructor를 사용했다.
-// class는 constructor의 대체제로 사용할 수 있다.
-// JavaScript에는 ECMA 6에서 추가되었다.
+//9.1. class의 constructor function
+// class로 객체를 만들 때는 function이라는 키워드 없이 함수명을 바로 쓴다.
+// 객체가 생성될 때, 객체의 초기 상태를 정의하는 약속된 함수를 사용하는데, 바로 constructor이다.
 
-// 우리의 서비스에 새로운 기능을 도입하기에 앞서 [Can I use 닷컴](https://caniuse.com/)에서 브라우저 호환성을 확인해보는 것이 좋다.
 
-// 또한 [Barbel](https://babeljs.io/)과 같은 컴파일러 혹은 트랜스파일러를 통해 이전 버전의 JavaScript로 변환해줄 수 있다.
-
-//8.2 Class의 생산성
-// class를 만들고 kim이라는 객체를 생성했다.
 class Person {
-
+    constructor(name, first, second) {
+        this.name = name;
+        this.first = first;
+        this.second = second;
+        console.log('constructor');
+    }
 }
 
+const kim = new Person('kim', 10, 20);
 
-const kim = new Person();
+//호출한 적도 없는constructor가 먼저 찍히고 이어서 객체에 대한 console.log가 찍혔다.
+//이는 객체가 생성되는 과정에서 constructor 함수가 실행되었다는 것을 의미한다.
 console.log('kim', kim);
+
+//이렇게 객체가 생성될 때 초기값을 세팅하는 constructor를 클래스 내에서 구현하는 방법을 살펴보았다.
+
 // kim.sum = function () {
 //     return 'this : ' + (this.first + this.second);
 // }
