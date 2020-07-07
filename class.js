@@ -1,8 +1,5 @@
-// 10.1 메소드 구현
-// Method: 객체에 소속된 함수
-
-// class 안에 함수를 넣으면 method로 동작하게 된다.
-// 이 때, function 키워는 쓰지 않는다!
+// 11.1. 상속
+// 간단하게도 extends를 추가하고 중복되는 코드를 지워주면 된다.
 class Person {
     constructor(name, first, second) {
         this.name = name;
@@ -14,12 +11,14 @@ class Person {
     }
 }
 
-
-// kim에서만 sum 메소드를 다르게 동작하도록 수정할 수 있다.
-const kim = new Person('kim', 10, 20);
-kim.sum = function () {
-    return 'this : ' + (this.first + this.second);
+class PersonPlus extends Person {
+    avg() {
+        return (this.first + this.second) / 2;
+    }
 }
-const lee = new Person('lee', 10, 10); // kim의 sum 메소드만 수정되고 lee의 sum에는 영향이 없다.
+
+// PersonPlus는 Person을 상속하므로 PersonPlus에 적지 않은 요소와 메소드를 사용할 수 있다.
+// PersonPlus를 통해 만든 kim이라는 객체는 Person에 있는 메소드인 sum을 사용할 수 있는 것이다
+const kim = new PersonPlus('kim', 10, 20);
 console.log('kim.sum()', kim.sum());
-console.log('lee.sum()', lee.sum());
+console.log('kim.avg()', kim.avg());
